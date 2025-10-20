@@ -60,12 +60,12 @@ const LiveChatWidget: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-5 right-5 z-50">
+        <div className="fixed bottom-5 right-5 z-50 pointer-events-none">
             {/* Chat Window */}
-            <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-                <div className="w-80 h-96 bg-brand-secondary rounded-lg shadow-2xl flex flex-col">
+            <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                <div className="w-80 h-96 bg-brand-base rounded-lg shadow-2xl flex flex-col">
                     {/* Header */}
-                    <div className="bg-brand-primary p-4 flex justify-between items-center rounded-t-lg">
+                    <div className="bg-brand-dark p-4 flex justify-between items-center rounded-t-lg">
                         <h3 className="text-white font-bold">Chat with an expert</h3>
                         <button onClick={toggleOpen} className="text-white hover:text-brand-accent">
                             <CloseIcon />
@@ -77,7 +77,7 @@ const LiveChatWidget: React.FC = () => {
                         <div className="space-y-4">
                             {messages.map((msg) => (
                                 <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                    <div className={`max-w-[80%] rounded-lg px-3 py-2 ${msg.sender === 'user' ? 'bg-brand-accent text-brand-primary' : 'bg-brand-primary text-white'}`}>
+                                    <div className={`max-w-[80%] rounded-lg px-3 py-2 ${msg.sender === 'user' ? 'bg-brand-accent text-brand-dark' : 'bg-brand-dark text-white'}`}>
                                         <p className="text-sm">{msg.text}</p>
                                     </div>
                                 </div>
@@ -94,9 +94,9 @@ const LiveChatWidget: React.FC = () => {
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 placeholder="Type your message..."
-                                className="flex-1 bg-brand-primary border border-gray-600 rounded-md py-2 px-3 text-white text-sm focus:ring-brand-accent focus:border-brand-accent"
+                                className="flex-1 bg-brand-dark border border-gray-600 rounded-md py-2 px-3 text-white text-sm focus:ring-brand-accent focus:border-brand-accent"
                             />
-                            <button type="submit" className="bg-brand-accent text-brand-primary p-2 rounded-md font-bold hover:bg-yellow-400">
+                            <button type="submit" className="bg-brand-accent text-brand-dark p-2 rounded-md font-bold hover:bg-lime-400">
                                 Send
                             </button>
                         </form>
@@ -107,7 +107,7 @@ const LiveChatWidget: React.FC = () => {
             {/* Toggle Button */}
             <button
                 onClick={toggleOpen}
-                className={`transition-all duration-300 ease-in-out mt-4 float-right bg-brand-accent text-brand-primary rounded-full p-4 shadow-lg hover:bg-yellow-400 transform hover:scale-110 ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}
+                className={`transition-all duration-300 ease-in-out mt-4 float-right bg-brand-accent text-brand-dark rounded-full p-4 shadow-lg hover:bg-lime-400 transform hover:scale-110 pointer-events-auto ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}
                 aria-label="Open chat"
             >
                 <ChatIcon />

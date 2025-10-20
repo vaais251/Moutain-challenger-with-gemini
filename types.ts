@@ -1,3 +1,4 @@
+import { LatLngExpression } from 'leaflet';
 
 export type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
 
@@ -5,6 +6,7 @@ export interface ItineraryItem {
   day: number;
   title: string;
   description: string;
+  coordinates?: { lat: number; lng: number };
 }
 
 export interface Expedition {
@@ -20,6 +22,8 @@ export interface Expedition {
   itinerary: ItineraryItem[];
   included: string[];
   excluded: string[];
+  mapCenter: { lat: number; lng: number };
+  mapZoom: number;
 }
 
 export interface Guide {
@@ -68,4 +72,29 @@ export interface BlogPost {
     image: string;
     content: string;
     category: BlogCategory;
+}
+
+export interface MapMarker {
+  coords: { lat: number; lng: number };
+  popupText: string;
+}
+
+export interface PackingListItem {
+  itemName: string;
+  quantity: string;
+  notes: string;
+}
+
+export interface PackingListCategory {
+  categoryName: string;
+  items: PackingListItem[];
+}
+
+export interface PackingList {
+    packingList: PackingListCategory[];
+}
+
+export interface AlternativeTrip {
+  title: string;
+  description: string;
 }

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 import LiveChatWidget from './components/LiveChatWidget';
+import AIAskAGuideWidget from './components/AIAskAGuideWidget';
 
 const Home = lazy(() => import('./pages/Home'));
 const Expeditions = lazy(() => import('./pages/Expeditions'));
@@ -16,6 +17,8 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Blog = lazy(() => import('./pages/Blog'));
 const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
+const AIAdventureFinder = lazy(() => import('./components/AIAdventureFinder'));
+const AIDreamItinerary = lazy(() => import('./pages/AIDreamItinerary'));
 
 
 const App: React.FC = () => {
@@ -25,7 +28,7 @@ const App: React.FC = () => {
         <Header />
         <main className="flex-grow">
           <Suspense fallback={
-            <div className="flex justify-center items-center h-screen bg-brand-primary">
+            <div className="flex justify-center items-center h-screen bg-brand-dark">
               <Spinner />
             </div>
           }>
@@ -36,6 +39,7 @@ const App: React.FC = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/ai-planner" element={<AITripPlanner />} />
+              <Route path="/ai-dream-itinerary" element={<AIDreamItinerary />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/blog" element={<Blog />} />
@@ -43,6 +47,7 @@ const App: React.FC = () => {
             </Routes>
           </Suspense>
         </main>
+        <AIAskAGuideWidget />
         <LiveChatWidget />
         <Footer />
       </div>

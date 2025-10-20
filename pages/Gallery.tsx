@@ -1,4 +1,5 @@
 
+
 import React, { useState, useMemo } from 'react';
 import { GALLERY_IMAGES } from '../constants';
 import type { GalleryImage } from '../types';
@@ -16,10 +17,10 @@ const Gallery: React.FC = () => {
     const categories: Category[] = ['All', 'Peaks', 'Valleys', 'Glaciers', 'Culture'];
 
     return (
-        <div className="bg-brand-primary pt-16 min-h-screen">
+        <div className="bg-brand-dark pt-16 min-h-screen">
             <div className="relative bg-cover bg-center h-80" style={{ backgroundImage: "url('https://picsum.photos/seed/gallery-banner/1920/600')" }}>
-                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                    <h1 className="text-5xl md:text-6xl font-extrabold text-white">Our Gallery</h1>
+                <div className="absolute inset-0 bg-hero-gradient flex flex-col items-center justify-center text-center p-4">
+                    <h1 className="text-5xl md:text-6xl font-extrabold font-heading uppercase text-white">Our Gallery</h1>
                     <p className="mt-4 text-xl text-gray-200 max-w-3xl">A glimpse into the majestic beauty of the Karakoram.</p>
                 </div>
             </div>
@@ -32,8 +33,8 @@ const Gallery: React.FC = () => {
                             onClick={() => setFilter(category)}
                             className={`px-6 py-2 rounded-full font-semibold transition-colors ${
                                 filter === category 
-                                ? 'bg-brand-accent text-brand-primary' 
-                                : 'bg-brand-secondary text-white hover:bg-brand-primary'
+                                ? 'bg-brand-accent text-brand-dark' 
+                                : 'bg-brand-base text-white hover:bg-brand-accent hover:text-brand-dark'
                             }`}
                         >
                             {category}
