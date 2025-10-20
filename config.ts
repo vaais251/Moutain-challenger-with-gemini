@@ -16,7 +16,7 @@
  * We recommend using a local environment variable solution for production projects.
  *
  */
-const USER_API_KEY = "YOUR_API_KEY_HERE";
+const USER_API_KEY = "AIzaSyDAQmRyN9dNOxCoLneDXPETYC0hAKFvmLw";
 
 /**
  * Returns the available API key.
